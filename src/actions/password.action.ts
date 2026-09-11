@@ -31,7 +31,7 @@ export async function requestPasswordReset(email: string) {
       },
     });
 
-    const resetUrl = `${process.env.NEXT_DEVELOPMENT_APP_URL}/reset-password?token=${token}`;
+    const resetUrl = `${process.env.NEXT_PUBLIC_APP_URL}/reset-password?token=${token}`;
 
     await transporter.sendMail({
       from: `"Trakbord" <${process.env.EMAIL_USER!}>`,

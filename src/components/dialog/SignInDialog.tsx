@@ -17,6 +17,7 @@ import {
 import InputWithLabel from "@/components/input/InputWithLabel";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { Loader } from "lucide-react";
+import Link from "next/link";
 
 function SignInDialog() {
   const router = useRouter();
@@ -77,16 +78,24 @@ function SignInDialog() {
               setFormData((prev) => ({ ...prev, username: value as string }))
             }
           />
-          <InputWithLabel
-            id="password"
-            label="Password"
-            type="password"
-            placeholder="Enter password"
-            value={formData.password}
-            onChange={(value) =>
-              setFormData((prev) => ({ ...prev, password: value as string }))
-            }
-          />
+          <div>
+            <InputWithLabel
+              id="password"
+              label="Password"
+              type="password"
+              placeholder="Enter password"
+              value={formData.password}
+              onChange={(value) =>
+                setFormData((prev) => ({ ...prev, password: value as string }))
+              }
+            />
+            <Link
+              href="/forgot-password"
+              className="text-xs text-neutral-500 hover:underline"
+            >
+              Forgot Password?
+            </Link>
+          </div>
 
           {/* Catcha */}
           <Turnstile
